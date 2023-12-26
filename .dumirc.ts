@@ -1,6 +1,14 @@
 import { defineConfig } from 'dumi';
 
+//github仓库名称
+const defaultPath = '/candyhouse_sesame_doc'; 
+//打包后gh-pages默认会拼接仓库名称在路径上
+const baseUrl = process.env.NODE_ENV === 'production' ? defaultPath : '';
+
+
 export default defineConfig({
+  base: defaultPath,
+  publicPath: `${baseUrl}/`,
   locales: [
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'EN' },
